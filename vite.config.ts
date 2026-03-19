@@ -6,10 +6,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',
-    allowedHosts: [
-      'drebudgie.local',
-      '192.168.100.171',
-      '192.168.100.232',
-    ],
+    allowedHosts: true, // allow all hosts
   },
 })
