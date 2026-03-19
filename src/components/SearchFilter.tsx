@@ -5,12 +5,13 @@ interface SearchFilters {
   minPrice: string;
   maxPrice: string;
   bedrooms: string;
-  listingType: 'buy' | 'rent' | 'all';
+  listingType: 'buy' | 'rent';
+  propertyType?: string;
 }
 
 interface SearchFilterProps {
   filters: SearchFilters;
-  onFilterChange: (filters: SearchFilters) => void;
+  onFilterChange: (filters: Partial<SearchFilters>) => void;
   onSearch: () => void;
 }
 

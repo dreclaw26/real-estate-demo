@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import PropertyCard from '../components/PropertyCard';
 import SearchFilter from '../components/SearchFilter';
 import { properties } from '../data/properties';
-import { Property, SearchFilters } from '../types/property';
+import type { Property, SearchFilters } from '../types/property';
 
 interface ListingsPageProps {
   listingType: 'buy' | 'rent';
@@ -17,7 +17,7 @@ const ListingsPage = ({ listingType }: ListingsPageProps) => {
     minPrice: '',
     maxPrice: '',
     bedrooms: '',
-    listingType: listingType,
+    listingType,
   });
 
   useEffect(() => {
@@ -25,10 +25,9 @@ const ListingsPage = ({ listingType }: ListingsPageProps) => {
   }, [filters]);
 
   useEffect(() => {
-    // Set initial filters from URL params
     const typeParam = searchParams.get('type');
     if (typeParam) {
-      setFilters({ ...filters, propertyType: typeParam });
+      setFilters((prev: SearchFilters) => ({ ...prev, propertyType: typeParam }));
     }
   }, [searchParams]);
 
@@ -46,20 +45,27 @@ const ListingsPage = ({ listingType }: ListingsPageProps) => {
     }
 
     if (filters.minPrice) {
-      const min = parseInt(filters.minPrice);
-      result = result.filter((p) => p.price >= min);
+      const min = Number(filters.minPrice);
+      if (!isNaN(min)) {
+        result = result.filter((p) => p.price >= min);
+      }
     }
 
     if (filters.maxPrice) {
-      const max = parseInt(filters.maxPrice);
-      result = result.filter((p) => p.price <= max);
+      const max = Number(filters.maxPrice);
+      if (!isNaN(max)) {
+        result = result.filter((p) => p.price <= max);
+      }
     }
 
     if (filters.bedrooms) {
       if (filters.bedrooms === '5+') {
         result = result.filter((p) => p.bedrooms >= 5);
       } else {
-        result = result.filter((p) => p.bedrooms === parseInt(filters.bedrooms));
+        const beds = parseInt(filters.bedrooms);
+        if (!isNaN(beds)) {
+          result = result.filter((p) => p.bedrooms === beds);
+        }
       }
     }
 
@@ -68,6 +74,10 @@ const ListingsPage = ({ listingType }: ListingsPageProps) => {
     }
 
     setFilteredProperties(result);
+  };
+
+  const handleFilterChange = (newFilters: Partial<SearchFilters>) => {
+    setFilters((prev: SearchFilters) => ({ ...prev, ...newFilters }));
   };
 
   return (
@@ -88,7 +98,7 @@ const ListingsPage = ({ listingType }: ListingsPageProps) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <SearchFilter
           filters={filters}
-          onFilterChange={setFilters}
+          onFilterChange={handleFilterChange}
           onSearch={filterProperties}
         />
 

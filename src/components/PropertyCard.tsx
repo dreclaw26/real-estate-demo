@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Property } from '../types/property';
+import type { Property } from '../types/property';
 import { Bath, Bed, Car, Square } from 'lucide-react';
 
 interface PropertyCardProps {

@@ -1,7 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Bed, Bath, Car, Square, Phone, Mail, MapPin, Home } from 'lucide-react';
 import { properties } from '../data/properties';
-import { formatPrice } from '../data/properties';
 
 const PropertyDetailPage = () => {
   const { id } = useParams<{ id: string }>();

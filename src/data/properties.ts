@@ -1,4 +1,4 @@
-import { Property } from '../types/property';
+import type { Property } from '../types/property';
 
 const unsplashImages = {
   house1: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&auto=format&fit=crop&q=60',
@@ -260,7 +260,7 @@ export const properties: Property[] = [
     bathrooms: 2,
     parking: 1,
     area: 120,
-    description: 'Stylish townhouse in a prime CBD location with city skyline views. This modern townhouse offers互動式生活空間，高檔裝修，私人阳台。步行到主要交通、餐飲和零售。保險庫存設計，安全奢華。',
+    description: 'Stylish townhouse in a prime CBD location with city skyline views. This modern townhouse offers modern living spaces, high-end finishes, and a private balcony. Walking distance to major transport, dining, and retail. Secure building with concierge.',
     features: [
       'City views',
       'Modern design',

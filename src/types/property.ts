@@ -21,12 +21,14 @@ export interface Property {
   };
   listingType: 'buy' | 'rent';
   dateListed: string;
+  priceFormatted?: string;
 }
 
 export interface SearchFilters {
-  suburb?: string;
-  minPrice?: number;
-  maxPrice?: number;
-  bedrooms?: number;
+  listingType: 'buy' | 'rent';
+  suburb: string;
+  minPrice: string;
+  maxPrice: string;
+  bedrooms: string;
   propertyType?: string;
 }
