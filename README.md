@@ -2,6 +2,13 @@
 
 This project unifies five independent Vite demo projects (real-estate, accounting, conveyancing, mortgage-broker, medical-centre) into a single React application with routing. Each demo maintains its original styling, components, and features while sharing a common build setup.
 
+## Features
+
+- **Professional Landing Page** at the root route (`/`) showcasing all demos with an attractive card layout.
+- **Dynamic HTML titles** per route for better SEO and user experience.
+- **Responsive design** built with Tailwind CSS v4.
+- **Modern React** with TypeScript and React Router v7.
+
 ## Structure
 
 ```
@@ -29,15 +36,12 @@ src/
 
 ## Routes
 
-Each demo is served under its own path:
-
+- `/` - Professional landing page with links to all demos
 - `/real-estate/*` - Real Estate demo (property listings)
 - `/accounting/*` - Accounting demo (Precision Accounting)
 - `/conveyancing/*` - Conveyancing demo (Clear Title Conveyancing)
 - `/mortgage-broker/*` - Mortgage Broker demo (HomeLoan Pro)
 - `/medical-centre/*` - Medical Centre demo (HealthFirst Medical)
-
-The root path `/` redirects to `/real-estate`.
 
 ## Development
 
