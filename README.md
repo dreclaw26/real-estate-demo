@@ -1,93 +1,97 @@
-# Demo Sites Monorepo
+# Unified Demo Sites
 
-This repository contains a collection of independent, fully functional demo websites built with Vite, React, TypeScript, and Tailwind CSS.
+This project unifies five independent Vite demo projects (real-estate, accounting, conveyancing, mortgage-broker, medical-centre) into a single React application with routing. Each demo maintains its original styling, components, and features while sharing a common build setup.
 
 ## Structure
 
 ```
-demos/
-├── real-estate/       # Real estate property listings demo
-├── accounting/        # Professional accounting services demo (tax, financial planning, bookkeeping)
-├── conveyancing/     # Property law and conveyancing services demo
-├── mortgage-broker/  # HomeLoan Pro - Mortgage broker services (home loans, refinancing, first home buyer, property investment)
-└── medical-centre/  # HealthFirst Medical - Healthcare services (general practice, specialists, allied health, health checks)
+src/
+├── App.tsx           # Main app with React Router
+├── main.tsx          # Entry point
+└── demos/
+    ├── real-estate/
+    │   └── src/
+    │       ├── App.tsx
+    │       ├── components/
+    │       ├── pages/
+    │       ├── data/
+    │       ├── types/
+    │       └── index.css
+    ├── accounting/
+    │   └── src/...
+    ├── conveyancing/
+    │   └── src/...
+    ├── mortgage-broker/
+    │   └── src/...
+    └── medical-centre/
+        └── src/...
 ```
 
-## Requirements
+## Routes
 
-- Node.js (v18 or higher recommended)
-- npm or yarn
+Each demo is served under its own path:
 
-## Running Each Demo
+- `/real-estate/*` - Real Estate demo (property listings)
+- `/accounting/*` - Accounting demo (Precision Accounting)
+- `/conveyancing/*` - Conveyancing demo (Clear Title Conveyancing)
+- `/mortgage-broker/*` - Mortgage Broker demo (HomeLoan Pro)
+- `/medical-centre/*` - Medical Centre demo (HealthFirst Medical)
 
-Each demo is a standalone Vite project with its own dependencies. To run a demo:
+The root path `/` redirects to `/real-estate`.
 
-1. Navigate to the demo directory:
-   ```bash
-   cd demos/real-estate
-   # or
-   cd demos/accounting
-   # or
-   cd demos/conveyancing
-   ```
+## Development
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open your browser and visit `http://localhost:5173` (or the port shown in the terminal).
-
-## Building for Production
-
-To create a production build:
+Install dependencies and start the development server:
 
 ```bash
-cd demos/<demo-name>
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173` (or the port shown in the terminal) in your browser. The dev server supports Hot Module Replacement (HMR).
+
+## Production Build
+
+```bash
 npm run build
+npm run preview
 ```
 
 The built files will be in the `dist/` directory.
-
-## Demo Descriptions
-
-### Real Estate
-A property listings website featuring home buying and renting. Includes property search, detailed listings, and a responsive design.
-
-### Accounting (Precision Accounting)
-A professional services website for an accounting firm. Features services, about us, and contact sections with a clean, emerald-themed design.
-
-### Conveyancing (Clear Title Conveyancing)
-A property law firm website specializing in conveyancing. Includes services, team profiles, testimonials, and contact information with an indigo/purple theme.
-
-### Mortgage Broker (HomeLoan Pro)
-A mortgage broker website featuring home loans, refinancing, first home buyer guidance, and property investment services. Includes interactive calculators, client testimonials, and a professional navy blue and teal color scheme with comprehensive contact forms.
-
-### Medical Centre (HealthFirst Medical)
-A comprehensive healthcare center website offering general practice, specialist consultations, allied health services, and health screenings. Features a medical team directory with doctor profiles, online appointment booking system, news/blog section, and a clean medical green and blue theme.
 
 ## Technology Stack
 
 - **Vite** - Build tool and dev server
 - **React 19** - UI framework
 - **TypeScript** - Type safety
-- **Tailwind CSS** - Utility-first styling
-- **React Router** - Client-side routing
+- **Tailwind CSS v4** - Utility-first styling
+- **React Router v7** - Client-side routing
 - **Lucide React** - Icon library
 
-All projects use the same versions of dependencies to ensure consistency.
+All dependencies are merged into a single `package.json` at the root, ensuring consistent versions across all demos.
+
+## Theming & Styling
+
+Each demo defines its own color palette and styling:
+
+- Custom colors are scoped using Tailwind's `@theme` blocks inside a dedicated CSS class (e.g., `.demo-real-estate`), applied to the demo's root element.
+- This allows each demo to retain its unique branding (e.g., real-estate's primary blue, mortgage-broker's navy & teal, medical-centre's medical green & blue) without conflicts.
+- Global base styles (body font, etc.) are defined once by the real-estate demo's theme and shared.
 
 ## Notes
 
-- Each demo is independent - they do not share dependencies or code.
-- The demos are designed to be easy to understand and modify.
-- Images are sourced from Unsplash (requires internet connection).
-- No backend or API integration - all data is static.
+- All data is static; no backend or API integration.
+- Images are sourced from Unsplash and require internet access.
+- The project uses a single TypeScript configuration with `include: ["src"]`, covering all demo code under `src/demos/`.
+- Unused configuration files from the original demos (vite.config.ts, tailwind.config.js, tsconfig.*, etc.) have been removed to avoid duplication.
+
+## Demo Descriptions
+
+- **Real Estate**: Property listings with buy/rent filters, property details, and a responsive card layout.
+- **Accounting (Precision Accounting)**: Professional accounting services site with emerald green accents, services, about, and contact pages.
+- **Conveyancing (Clear Title Conveyancing)**: Property law firm site with indigo/purple theme, services, team, and testimonials.
+- **Mortgage Broker (HomeLoan Pro)**: Mortgage services with calculators, testimonials, and a navy/teal color scheme.
+- **Medical Centre (HealthFirst Medical)**: Healthcare site with team profiles, news, appointments booking, and medical green/blue palette.
 
 ## License
 

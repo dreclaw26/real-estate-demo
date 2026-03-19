@@ -1,26 +1,21 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import ListingsPage from './pages/ListingsPage';
-import PropertyDetailPage from './pages/PropertyDetailPage';
-import './index.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import RealEstateApp from './demos/real-estate/src/App';
+import AccountingApp from './demos/accounting/src/App';
+import ConveyancingApp from './demos/conveyancing/src/App';
+import MortgageBrokerApp from './demos/mortgage-broker/src/App';
+import MedicalCentreApp from './demos/medical-centre/src/App';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-gray-50">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/buy" element={<ListingsPage listingType="buy" />} />
-            <Route path="/rent" element={<ListingsPage listingType="rent" />} />
-            <Route path="/property/:id" element={<PropertyDetailPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/" element={<Navigate to="/real-estate" replace />} />
+        <Route path="/real-estate/*" element={<RealEstateApp />} />
+        <Route path="/accounting/*" element={<AccountingApp />} />
+        <Route path="/conveyancing/*" element={<ConveyancingApp />} />
+        <Route path="/mortgage-broker/*" element={<MortgageBrokerApp />} />
+        <Route path="/medical-centre/*" element={<MedicalCentreApp />} />
+      </Routes>
     </Router>
   );
 }
