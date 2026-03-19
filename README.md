@@ -8,7 +8,9 @@ This repository contains a collection of independent, fully functional demo webs
 demos/
 ├── real-estate/       # Real estate property listings demo
 ├── accounting/        # Professional accounting services demo (tax, financial planning, bookkeeping)
-└── conveyancing/     # Property law and conveyancing services demo
+├── conveyancing/     # Property law and conveyancing services demo
+├── mortgage-broker/  # HomeLoan Pro - Mortgage broker services (home loans, refinancing, first home buyer, property investment)
+└── medical-centre/  # HealthFirst Medical - Healthcare services (general practice, specialists, allied health, health checks)
 ```
 
 ## Requirements
@@ -62,6 +64,12 @@ A professional services website for an accounting firm. Features services, about
 
 ### Conveyancing (Clear Title Conveyancing)
 A property law firm website specializing in conveyancing. Includes services, team profiles, testimonials, and contact information with an indigo/purple theme.
+
+### Mortgage Broker (HomeLoan Pro)
+A mortgage broker website featuring home loans, refinancing, first home buyer guidance, and property investment services. Includes interactive calculators, client testimonials, and a professional navy blue and teal color scheme with comprehensive contact forms.
+
+### Medical Centre (HealthFirst Medical)
+A comprehensive healthcare center website offering general practice, specialist consultations, allied health services, and health screenings. Features a medical team directory with doctor profiles, online appointment booking system, news/blog section, and a clean medical green and blue theme.
 
 ## Technology Stack
 
