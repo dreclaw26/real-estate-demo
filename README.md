@@ -1,6 +1,6 @@
 # Unified Demo Sites
 
-This project unifies five independent Vite demo projects (real-estate, accounting, conveyancing, mortgage-broker, medical-centre) into a single React application with routing. Each demo maintains its original styling, components, and features while sharing a common build setup.
+This project unifies six independent Vite demo projects (real-estate, accounting, conveyancing, mortgage-broker, medical-centre, barbershop) into a single React application with routing. Each demo maintains its original styling, components, and features while sharing a common build setup.
 
 ## Features
 
@@ -30,7 +30,9 @@ src/
     │   └── src/...
     ├── mortgage-broker/
     │   └── src/...
-    └── medical-centre/
+    ├── medical-centre/
+    │   └── src/...
+    └── barbershop/
         └── src/...
 ```
 
@@ -42,6 +44,7 @@ src/
 - `/conveyancing/*` - Conveyancing demo (Clear Title Conveyancing)
 - `/mortgage-broker/*` - Mortgage Broker demo (HomeLoan Pro)
 - `/medical-centre/*` - Medical Centre demo (HealthFirst Medical)
+- `/barbershop/*` - Barbershop demo (The Classic Cut)
 
 ## Development
 
@@ -96,6 +99,7 @@ Each demo defines its own color palette and styling:
 - **Conveyancing (Clear Title Conveyancing)**: Property law firm site with indigo/purple theme, services, team, and testimonials.
 - **Mortgage Broker (HomeLoan Pro)**: Mortgage services with calculators, testimonials, and a navy/teal color scheme.
 - **Medical Centre (HealthFirst Medical)**: Healthcare site with team profiles, news, appointments booking, and medical green/blue palette.
+- **Barbershop (The Classic Cut)**: Premium barbershop site with dark masculine theme (navy/charcoal & gold), services, team profiles, gallery, booking form, and contact pages.
 
 ## License
 

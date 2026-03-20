@@ -5,6 +5,7 @@ import AccountingApp from './demos/accounting/src/App';
 import ConveyancingApp from './demos/conveyancing/src/App';
 import MortgageBrokerApp from './demos/mortgage-broker/src/App';
 import MedicalCentreApp from './demos/medical-centre/src/App';
+import BarbershopApp from './demos/barbershop/src/App';
 import LandingPage from './components/LandingPage';
 
 function TitleUpdater() {
@@ -24,6 +25,8 @@ function TitleUpdater() {
       title = 'Mortgage Broker Demo | Precision Web Solutions';
     } else if (path.startsWith('/medical-centre')) {
       title = 'Medical Centre Demo | Precision Web Solutions';
+    } else if (path.startsWith('/barbershop')) {
+      title = 'Barbershop Demo | Precision Web Solutions';
     }
 
     document.title = title;
@@ -43,6 +46,7 @@ function App() {
         <Route path="/conveyancing/*" element={<ConveyancingApp />} />
         <Route path="/mortgage-broker/*" element={<MortgageBrokerApp />} />
         <Route path="/medical-centre/*" element={<MedicalCentreApp />} />
+        <Route path="/barbershop/*" element={<BarbershopApp />} />
       </Routes>
     </Router>
   );
