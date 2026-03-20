@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Home, Wallet, ScrollText, Home as HomeLoan, Heart } from 'lucide-react';
+import { Home, Wallet, ScrollText, Home as HomeLoan, Heart, Scissors } from 'lucide-react';
 
 const demos = [
   {
@@ -41,6 +41,14 @@ const demos = [
     description: 'Healthcare site with team profiles, news, appointments booking, and medical green/blue palette.',
     color: 'bg-cyan-600',
     hoverColor: 'hover:bg-cyan-700',
+  },
+  {
+    path: '/barbershop',
+    icon: Scissors,
+    title: 'Barbershop',
+    description: 'Premium barbershop with dark masculine theme, services, team, gallery, booking form, and contact pages.',
+    color: 'bg-amber-600',
+    hoverColor: 'hover:bg-amber-700',
   },
 ];
 
